@@ -149,3 +149,14 @@ ValueError("nOTHING IMPACRTJNJV ")
 
 # BUT THIS IMPACT
 # raise ValueError("Happen !!!")"""
+
+# ─── assert Statement ─────────────────────────────────────────────────────────
+# Used for DEBUGGING / TESTING conditions.
+# Raises AssertionError if the condition is False.
+# Syntax: assert <condition>, "optional message"
+
+x = 5
+assert x > 0               # passes silently
+assert x > 0, "x must be positive"  # passes silently; message shown on failure
+
+# assert x < 0, "x must be positive"  # would raise: AssertionError: x must be positive
