@@ -100,3 +100,65 @@ NumPy supports many data types. Specify during creation: `np.array([1, 2], dtype
 | `b` | Boolean | `bool_` |
 | `O` | Object | Python objects |
 | `U` | Unicode | Unicode Strings |
+
+---
+
+## Indexing, Slicing & `np.where`
+
+### Slicing (works same as Python lists)
+```python
+arr[::-1]        # reverse 1D array
+arr[:, ::-1]     # reverse each row of a 2D array
+```
+
+### `np.where(condition, x, y)`
+Returns elements from `x` where condition is True, else from `y`.
+```python
+arr = np.where(condition, true_val, false_val)
+```
+
+### `np.indices(shape)`
+Returns an open mesh of index arrays for a given shape — useful for
+building coordinate-based arrays without explicit loops.
+```python
+i, j = np.indices((n, n))   # i = row indices, j = col indices
+```
+
+---
+
+## Patterns & Recipes
+
+### Checkerboard Pattern (two methods)
+
+**Method 1 – `np.where` + `np.indices`:**
+```python
+import numpy as np
+n = 8
+i, j = np.indices((n, n))
+arr = np.where((i + j) % 2 != 0, 1, 0)
+```
+
+**Method 2 – Slice assignment:**
+```python
+x = np.zeros((n, n), dtype=int)
+x[1::2, ::2] = 1    # odd rows, even cols
+x[::2, 1::2] = 1    # even rows, odd cols
+print(x)
+# [[0 1 0 1 0 1 0 1]
+#  [1 0 1 0 1 0 1 0]
+#  ...]
+```
+
+### Advanced 2D Input from stdin
+```python
+arr = np.array([list(map(int, input().split())) for _ in range(rows)])
+```
+
+---
+
+## Linear Algebra (`np.linalg`)
+
+| Method | Description |
+| :--- | :--- |
+| `np.linalg.det(arr)` | Returns the determinant of a square matrix. |
+
