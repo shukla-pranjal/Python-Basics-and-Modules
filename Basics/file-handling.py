@@ -37,4 +37,25 @@ file.close()
 
 
 
+"""
+─── seek & tell ──────────────────────────────────────────────────────────────
+
+fileobject.tell()  -> returns the current byte position of the file pointer.
+
+fileobject.seek(offset, whence=0)
+    offset  : number of bytes to move
+    whence  : 0 = from start (default), 1 = from current position, 2 = from end
+
+IMPORTANT – .read() moves the pointer to the END of the file.
+  A second call to .read() will return an empty string because the pointer
+  is already at the end.  Use .seek(0) to reset before reading again.
+
+Example:
+    with open("virtual.txt", "r") as f:
+        data = f.read()        # reads all content; pointer now at end
+        print(f.tell())        # prints file size in bytes
+
+        f.seek(0)              # reset pointer to beginning
+        data_again = f.read()  # works correctly now
+"""
 
