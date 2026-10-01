@@ -38,3 +38,5 @@ print(obj._funName())
 
 # so in pyhton its just covection thst mean there can change of rule for somebody else
 # like other programming language in pyhon its no such use 
+
+

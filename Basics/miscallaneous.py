@@ -13,6 +13,9 @@ print(c.startswith(" k" , 0 ,65))  #True
 print(c.find(" mm")) #return first index where found
 #print(c.index(" mm")) #return first index where found
 
+print(c.rfind(" mm")) #return last index where found
+
+
 #but difference is index one gives error and find gives -1 if not found
 
 print(c.isprintable()) #retunrns true if printable else false
